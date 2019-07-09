@@ -14,12 +14,20 @@ const styles = StyleSheet.create({
     },
     input: {
         borderRadius: 36,
-        color: 'white',
         height: 30,
         borderColor: 'gray',
         borderWidth: 1,
+        paddingLeft: 16,
+        paddingRight: 32,
+        paddingBottom: 3,
+        paddingTop: 0,
+        textAlign: 'center'
+    },
+    inputView: {
+        borderRadius: 36,
+        backgroundColor: 'white',
         width: '75%',
-        alignSelf: "center"
+        alignSelf: "center",
     }
 });
 
@@ -37,10 +45,13 @@ export default class Search extends Component {
                 <View>
                     <Text style={styles.title}>Instant Username Search</Text>
                 </View>
-                <TextInput style={styles.input}
-                    onChangeText={(text) => this.setState({ text })}
-                    value={this.state.text}
-                />
+                <View style={styles.inputView}>
+                    <TextInput style={styles.input}
+                        onChangeText={(text) => this.setState({ text })}
+                        value={this.state.text}
+                        clearButtonMode='while-editing'
+                    />
+                </View>
                 <Text>{this.state.text}</Text>
             </View>
         );
