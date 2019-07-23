@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { Container, Header, Title, Content, Button, Left, Right, Body, Icon } from 'native-base';
 import { Search } from '../components/Search';
 import { Results } from '../components/Results';
@@ -18,7 +18,7 @@ export const MainPage: React.FC<{}> = () => {
         <Header>
           <Left>
             <Button transparent>
-              <Icon name='menu' />
+              <Icon name="menu" />
             </Button>
           </Left>
           <Body>
@@ -27,33 +27,33 @@ export const MainPage: React.FC<{}> = () => {
           <Right />
         </Header>
         <Content>
-            <Search onSearch={onSearch} />
-            <Results results={mockResults} />
+          <Search onSearch={onSearch} />
+          <Results results={mockResults} />
         </Content>
       </Container>
     </>
   );
-}
+};
 
 const mockResults: Result[] = [
   {
     service: 'Facebook',
     url: 'https://www.facebook.com/usernam',
-    availability: true
+    availability: true,
   },
   {
     service: 'Twitter',
     url: 'https://www.twitter.com/username',
-    availability: true
+    availability: true,
   },
   {
     service: 'Instagram',
     url: 'https://www.instagram.com/username',
-    availability: false
+    availability: false,
   },
   {
     service: 'Youtube',
     url: 'https://www.youtube.com/username',
-    availability: true
-  }
+    availability: true,
+  },
 ];
