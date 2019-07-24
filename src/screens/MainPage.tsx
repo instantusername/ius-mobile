@@ -21,9 +21,7 @@ export const MainPage: React.FC<{}> = () => {
               <Icon name="menu" />
             </Button>
           </Left>
-          <Body>
-            <Title>Header</Title>
-          </Body>
+          <Body>{/* <Title>Header</Title> */}</Body>
           <Right />
         </Header>
         <Content>
