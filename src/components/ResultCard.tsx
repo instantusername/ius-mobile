@@ -1,5 +1,7 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React from 'react';
+import { StyleSheet } from 'react-native';
+import styled from 'styled-components/native';
+import { Container, Header, Content, Card, CardItem, Text, Body } from 'native-base';
 
 export interface Props {
   result: Result;
@@ -11,24 +13,23 @@ export interface Result {
   availability: boolean;
 }
 
+const StyledCard = styled(Card)`
+  width: 40%;
+  margin: 5%;
+`;
+
 export const ResultCard: React.SFC<Props> = ({ result }) => {
   const { service, url, availability } = result;
   return (
-    <View style={styles.card}>
-      <View>
+    <StyledCard>
+      <CardItem header>
         <Text>{service}</Text>
-      </View>
-      <View>
-        <Text>{availability ? "available" : "taken"}</Text>
-      </View>
-    </View>
+      </CardItem>
+      <CardItem>
+        <Body>
+          <Text>{availability ? 'available' : 'taken'}</Text>
+        </Body>
+      </CardItem>
+    </StyledCard>
   );
 };
-
-const styles = StyleSheet.create({
-  card: {
-    backgroundColor: "yellow",
-    width: "40%",
-    margin: "5%"
-  }
-});
