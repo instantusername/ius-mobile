@@ -42,7 +42,7 @@ const mockResults: Result[] = [
   {
     service: 'Twitter',
     url: 'https://www.twitter.com/username',
-    availability: true,
+    availability: false,
   },
   {
     service: 'Instagram',
