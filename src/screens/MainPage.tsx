@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Header, Title, Content, Button, Left, Right, Body, Icon } from 'native-base';
+import { Container, Header, Content, Button, Left, Right, Body, Icon } from 'native-base';
 import { Search } from '../components/Search';
 import { Results } from '../components/Results';
 import { Result } from '../components/ResultCard';

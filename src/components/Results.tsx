@@ -1,10 +1,18 @@
-import React, { useMemo } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { Result, ResultCard } from "./ResultCard";
+import React, { useMemo } from 'react';
+import styled from 'styled-components/native';
+import { Result, ResultCard } from './ResultCard';
+import { Section } from '../styles';
 
 export interface Props {
   results: Result[];
 }
+
+const ResultsSection = styled.View`
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #ffffff;
+  flex-direction: row;
+`;
 
 export const Results: React.SFC<Props> = ({ results }) => {
   return useMemo(() => {
@@ -13,12 +21,10 @@ export const Results: React.SFC<Props> = ({ results }) => {
       return <ResultCard key={service} result={res} />;
     });
 
-    return <View style={styles.results}>{resultCards}</View>;
+    return (
+      <Section>
+        <ResultsSection>{resultCards}</ResultsSection>
+      </Section>
+    );
   }, [results]);
 };
-
-const styles = StyleSheet.create({
-  results: {
-    backgroundColor: "white"
-  }
-});

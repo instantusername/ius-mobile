@@ -1,7 +1,6 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import styled from 'styled-components/native';
-import { Container, Header, Content, Card, CardItem, Text, Body } from 'native-base';
+import { Card, CardItem, Text, Body } from 'native-base';
 
 export interface Props {
   result: Result;
@@ -14,8 +13,8 @@ export interface Result {
 }
 
 const StyledCard = styled(Card)`
-  width: 40%;
-  margin: 5%;
+  width: 47%;
+  margin: 1.5%;
 `;
 
 export const ResultCard: React.SFC<Props> = ({ result }) => {
