@@ -1,4 +1,3 @@
-import { View, Text, TextInput } from 'react-native';
 import styled from 'styled-components/native';
 
 export const StyledSearch = styled.View`

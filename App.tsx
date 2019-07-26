@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import * as Font from "expo-font";
-import getTheme from "./native-base-theme/components";
-import iusDark from "./native-base-theme/variables/iusDark";
-import { Ionicons } from "@expo/vector-icons";
-import { MainPage } from "./src/screens/MainPage";
-import { StyleProvider } from "native-base";
+import React, { useEffect, useState } from 'react';
+import * as Font from 'expo-font';
+import getTheme from './native-base-theme/components';
+import iusDark from './native-base-theme/variables/iusDark';
+import { Ionicons } from '@expo/vector-icons';
+import { MainPage } from './src/screens/MainPage';
+import { StyleProvider } from 'native-base';
 
 export default function App() {
   const [fontLoaded, setFontLoaded] = useState(false);
@@ -12,9 +12,9 @@ export default function App() {
   useEffect(() => {
     async function load(): Promise<void> {
       await Font.loadAsync({
-        Roboto: require("native-base/Fonts/Roboto.ttf"),
-        Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
-        ...Ionicons.font
+        Roboto: require('native-base/Fonts/Roboto.ttf'),
+        Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
+        ...Ionicons.font,
       });
       setFontLoaded(true);
     }

@@ -1,7 +1,6 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import { Card, CardItem, Text, Body } from 'native-base';
-import { StyledCard } from '../styles/ResultCard';
+import { Text, Body } from 'native-base';
+import { styles, StyledCard, StatusText, CardItemTop, CardItemBottom } from '../styles/ResultCard';
 
 export interface Props {
   result: Result;
@@ -16,45 +15,22 @@ export interface Result {
 export const ResultCard: React.SFC<Props> = ({ result }) => {
   const { service, url, availability } = result;
   return (
-    <StyledCard>
-      <CardItem
+    <StyledCard transparent style={availability && styles.availableCard}>
+      <CardItemTop
         header
-        style={{
-          paddingBottom: 10,
-          paddingLeft: 20,
-        }}
+        style={availability ? styles.availableTopCardItem : styles.takenTopCardItem}
       >
         <Text style={availability ? styles.availableHeader : styles.takenHeader}>{service}</Text>
-      </CardItem>
-      <CardItem
-        style={{
-          paddingTop: 0,
-          paddingBottom: 17,
-          paddingLeft: 20,
-        }}
+      </CardItemTop>
+      <CardItemBottom
+        style={availability ? styles.availableBottomCardItem : styles.takenBottomCardItem}
       >
         <Body>
-          <Text style={availability ? styles.availableText : styles.takenText}>
+          <StatusText style={availability ? { ...styles.availableText } : { ...styles.takenText }}>
             {availability ? 'Available' : 'Taken'}
-          </Text>
+          </StatusText>
         </Body>
-      </CardItem>
+      </CardItemBottom>
     </StyledCard>
   );
 };
-
-const styles = StyleSheet.create({
-  availableHeader: {
-    color: 'rgba(0, 0, 0, 0.85)',
-  },
-  takenHeader: {
-    textDecorationLine: 'line-through',
-    color: 'rgba(0, 0, 0, 0.45)',
-  },
-  availableText: {
-    color: 'rgba(0, 0, 0, 0.45)',
-  },
-  takenText: {
-    color: 'rgba(0, 0, 0, 0.45)',
-  },
-});
