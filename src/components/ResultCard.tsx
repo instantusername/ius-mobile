@@ -1,5 +1,6 @@
 import React from 'react';
-import { TouchableOpacity, Linking } from 'react-native';
+import { TouchableOpacity } from 'react-native';
+import * as WebBrowser from 'expo-web-browser';
 import { Text, Body } from 'native-base';
 import { styles, StyledCard, StatusText, CardItemTop, CardItemBottom } from '../styles/ResultCard';
 
@@ -16,9 +17,10 @@ export interface Result {
 export const ResultCard: React.SFC<Props> = ({ result }) => {
   const { service, url, availability } = result;
 
-  function handleClick(): void {
-    console.log(url);
-    Linking.openURL(url).catch(err => console.error('An error occurred', err));
+  async function handleClick(): Promise<void> {
+    await WebBrowser.openBrowserAsync(url).catch(err => {
+      console.log(err);
+    });
   }
 
   return (
