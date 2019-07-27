@@ -17,8 +17,7 @@ const ResultsSection = styled.View`
 export const Results: React.SFC<Props> = ({ results }) => {
   return useMemo(() => {
     const resultCards = results.map(res => {
-      const { service } = res;
-      return <ResultCard key={service} result={res} />;
+      return <ResultCard key={res.service} result={res} />;
     });
 
     return (
