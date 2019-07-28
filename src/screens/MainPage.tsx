@@ -1,19 +1,12 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import { Container, Header, Content, Button, Left, Right, Body, Icon } from 'native-base';
 import { Search } from '../components/Search';
 import { Results } from '../components/Results';
-import { Result } from '../components/ResultCard';
+import MainProvider from '../components/MainProvider';
 
 export const MainPage: React.FC<{}> = () => {
-  const [username, setUsername] = useState('');
-
-  const onSearch = (text: string) => {
-    setUsername(text);
-    console.log(`search: ${username}`);
-  };
-
   return (
-    <>
+    <MainProvider>
       <Container>
         <Header>
           <Left>
@@ -25,33 +18,10 @@ export const MainPage: React.FC<{}> = () => {
           <Right />
         </Header>
         <Content>
-          <Search onSearch={onSearch} />
-          <Results results={mockResults} />
+          <Search />
+          <Results />
         </Content>
       </Container>
-    </>
+    </MainProvider>
   );
 };
-
-const mockResults: Result[] = [
-  {
-    service: 'Facebook',
-    url: 'https://www.facebook.com/usernam',
-    availability: true,
-  },
-  {
-    service: 'Twitter',
-    url: 'https://www.twitter.com/username',
-    availability: false,
-  },
-  {
-    service: 'Instagram',
-    url: 'https://www.instagram.com/username',
-    availability: false,
-  },
-  {
-    service: 'Youtube',
-    url: 'https://www.youtube.com/username',
-    availability: true,
-  },
-];

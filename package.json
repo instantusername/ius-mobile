@@ -9,6 +9,7 @@
     "postinstall": "cp ./node_modules/@expo/vector-icons/FontAwesome.js ./node_modules/@expo/vector-icons/FontAwesome5Pro.js"
   },
   "dependencies": {
+    "debounce": "^1.2.0",
     "expo": "^33.0.0",
     "expo-font": "~5.0.1",
     "native-base": "^2.12.2",
