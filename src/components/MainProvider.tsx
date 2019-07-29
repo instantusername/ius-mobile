@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react';
+import { ServiceResult } from '../api';
 
 interface Props {
   children: JSX.Element[] | JSX.Element;
@@ -7,7 +8,7 @@ interface Props {
 export const MainContext = React.createContext([]);
 
 const MainProvider: React.SFC<Props> = ({ children }) => {
-  const initialState = {
+  const initialState: { results: ServiceResult[] } = {
     results: [],
   };
 
@@ -16,7 +17,7 @@ const MainProvider: React.SFC<Props> = ({ children }) => {
       case 'ADD_RESULT':
         return { results: [...state.results, action.payload] };
       case 'CLEAN':
-        return { results: [...state.results, action.payload] };
+        return { results: [] };
       default:
         return state;
     }

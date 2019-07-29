@@ -36,8 +36,8 @@ export const Results: React.SFC<{}> = () => {
   ];
   const [state] = useContext(MainContext);
   return useMemo(() => {
-    console.log('the state is: ', JSON.stringify(state));
-    const resultCards = results.map(res => {
+    // console.log('the state is: ', JSON.stringify(state.results));
+    const resultCards = state.results.map(res => {
       return <ResultCard key={res.service} result={res} />;
     });
 
