@@ -19,7 +19,7 @@ export const ResultCard: React.SFC<Props> = ({ result }) => {
 
   async function handleClick(): Promise<void> {
     await WebBrowser.openBrowserAsync(url).catch(err => {
-      console.log(err);
+      // console.log(err);
     });
   }
 
